@@ -23,14 +23,26 @@ import sys
 import calendar
 from datetime import datetime
 
-def print_calendar(ele1=datetime.today().month, ele2=datetime.today().year):
-  if(ele1 == 0):
-    print('You need to enter a value for the month and year for this function to work properly.')
-    return
-  x = calendar.TextCalendar(calendar.SUNDAY)
-  cal = x.formatmonth(ele2, ele1)
-  print(cal)
+# def print_calendar(ele1=datetime.today().month, ele2=datetime.today().year):
+#   if(ele1 == 0):
+#     print('You need to enter a value for the month and year for this function to work properly.')
+#     return
+#   x = calendar.TextCalendar(calendar.SUNDAY)
+#   cal = x.formatmonth(ele2, ele1)
+#   print(cal)
 
-print_calendar()
-print_calendar(2)
-print_calendar(4, 2018)
+# print_calendar()
+# print_calendar(2)
+# print_calendar(4, 2018)
+
+if len(sys.argv) == 3:
+  print(calendar.month(int(sys.argv[2]), int(sys.argv[1])))
+
+elif len(sys.argv) == 2:
+  print(calendar.month(datetime.today().year, int(sys.argv[1])))
+
+elif len(sys.argv) == 1:
+  print(calendar.month(datetime.today().year, datetime.today().month))
+
+else: 
+    print('Input a month, and year to generate a calendar.')
