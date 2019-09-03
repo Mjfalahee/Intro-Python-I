@@ -22,3 +22,15 @@ and does the following:
 import sys
 import calendar
 from datetime import datetime
+
+def print_calendar(ele1=datetime.today().month, ele2=datetime.today().year):
+  if(ele1 == 0):
+    print('You need to enter a value for the month and year for this function to work properly.')
+    return
+  x = calendar.TextCalendar(calendar.SUNDAY)
+  cal = x.formatmonth(ele2, ele1)
+  print(cal)
+
+print_calendar()
+print_calendar(2)
+print_calendar(4, 2018)
